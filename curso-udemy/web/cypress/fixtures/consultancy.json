@@ -1,0 +1,44 @@
+{
+  "personal": {
+    "name": "Lucas Silveira",
+    "email": "papito@teste.com.br",
+    "phone": "(11) 99999-9999",
+    "consultancyType": "Individual",
+    "personType": "cpf",
+    "document": "12345678900",
+    "discoveryChannels": [
+      "Instagram",
+      "YouTube",
+      "LinkedIn",
+      "Indicação de Amigo",
+      "Udemy"
+    ],
+    "file": "./cypress/fixtures/document.pdf",
+    "description": "Lorem ipsum dolor sit amet",
+    "techs": [
+      "Cypress",
+      "Selenium",
+      "WebDriverIO",
+      "Playwright",
+      "Robot Framework"
+    ],
+    "terms": true
+  },
+  "company": {
+    "name": "Lucas Silveira",
+    "email": "papito@teste.com.br",
+    "phone": "(11) 99999-9999",
+    "consultancyType": "In Company",
+    "personType": "cnpj",
+    "document": "167012561000181",
+    "discoveryChannels": [
+      "LinkedIn"
+    ],
+    "file": "./cypress/fixtures/document.pdf",
+    "description": "Lorem ipsum dolor sit amet",
+    "techs": [
+      "Cypress"
+    ],
+    "terms": true
+  }
+}

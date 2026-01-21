@@ -11,7 +11,7 @@ describe("Login", () => {
       .should("be.visible")
       .and(
         "have.text",
-        "Olá QA, esse é o seu Dojo para aprender Automação de Testes."
+        "Olá QA, esse é o seu Dojo para aprender Automação de Testes.",
       );
   });
 

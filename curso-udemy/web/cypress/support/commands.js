@@ -1,37 +1,15 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-
-import 'cypress-real-events' //importar os recursos dessa biblioteca
-
-
+import "cypress-real-events"; //importar os recursos dessa biblioteca
+import "./actions/consultancy.actions";
 
 Cypress.Commands.add("start", () => {
   cy.viewport(1440, 900);
   cy.visit("http://localhost:3000");
+});
+
+Cypress.Commands.add("goToSignup", () => {
+  cy.start();
+  cy.get('a[href="/register"]').click(); //cy.contains("a", "Cadastre-se").click;
+  cy.contains("h2", "Crie sua conta").should("be.visible");
 });
 
 Cypress.Commands.add("submitLogin", (email, password) => {
@@ -45,4 +23,10 @@ Cypress.Commands.add("goTo", (buttonName, pageTitle) => {
   cy.contains("button", buttonName).should("be.visible").click();
 
   cy.contains("h1", pageTitle).should("be.visible");
+});
+
+//Helpers
+Cypress.Commands.add("login", () => {
+  cy.start();
+  cy.submitLogin("papito@webdojo.com", "katana123");
 });
