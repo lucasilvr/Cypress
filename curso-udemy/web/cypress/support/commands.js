@@ -1,4 +1,4 @@
-import "cypress-real-events"; //importar os recursos dessa biblioteca
+  import "cypress-real-events"; //importar os recursos dessa biblioteca
 import "./actions/consultancy.actions";
 
 Cypress.Commands.add("start", () => {
