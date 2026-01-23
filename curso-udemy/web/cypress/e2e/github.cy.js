@@ -49,7 +49,7 @@ describe("Gerenciamento de Perfis no Github", () => {
     cy.contains("table tbody", profile.username).should("not.exist");
   });
 
-  it.only("Deve validar o link do github", () => {
+  it("Deve validar o link do github", () => {
     //definir uma massa de teste pra automatizar, objeto javascript
     const profile = {
       name: "Lucas Silveira",
