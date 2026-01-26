@@ -1,9 +1,9 @@
-  import "cypress-real-events"; //importar os recursos dessa biblioteca
+import "cypress-real-events"; //importar os recursos dessa biblioteca
 import "./actions/consultancy.actions";
+import { dataHojeFormatada } from "./utils";
 
 Cypress.Commands.add("start", () => {
-  cy.viewport(1440, 900);
-  cy.visit("http://localhost:3000");
+  cy.visit("/");
 });
 
 Cypress.Commands.add("goToSignup", () => {
@@ -26,7 +26,20 @@ Cypress.Commands.add("goTo", (buttonName, pageTitle) => {
 });
 
 //Helpers
-Cypress.Commands.add("login", () => {
-  cy.start();
-  cy.submitLogin("papito@webdojo.com", "katana123");
+Cypress.Commands.add("login", (ui = false) => {
+  if ((ui === true)) {
+    cy.start();
+    cy.submitLogin("papito@webdojo.com", "katana123");
+  } else {
+    const token = "e1033d63a53fe66c0fd3451c7fd8f617";
+    const loginDate = dataHojeFormatada();
+
+    cy.setCookie("login_date", loginDate);
+
+    cy.visit('/dashboard', {
+      onBeforeLoad(win) {
+        win.localStorage.setItem("token", token);
+      },
+    });
+  }
 });

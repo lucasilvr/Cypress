@@ -3,7 +3,7 @@ import address from "../fixtures/cep.json";
 describe("CEP", () => {
   beforeEach(() => {
     cy.start();
-    cy.submitLogin("papito@webdojo.com", "katana123");
+    cy.login() //cy.login(true  ) para fazer o login via interface, caso eu precise
     cy.goTo("Integração", "Consulta de CEP");
   });
 
